@@ -10,6 +10,12 @@ const errorMiddlerware = require('./middlewares/error');
 app.use(express.json());
 app.use(cookieParser());
 app.use(fileUpload());
+app.use((req, res, next) => {
+  res.setHeader("Access-Control-Allow-Origin", "*");
+  
+  next();
+});
+
 
 // setting up routes
 const user = require('./routes/userRoute');
