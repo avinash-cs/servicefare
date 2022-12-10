@@ -7,12 +7,7 @@ const app = express();
 // error Middleware
 const errorMiddlerware = require('./middlewares/error');
 const cors = require('cors');
-app.use(cors({
-    origin: '*'
-}));
-app.use(cors({
-    methods: ['GET','POST','DELETE','UPDATE','PUT','PATCH']
-}));
+app.use(cors());
 app.use(express.json());
 app.use(cookieParser());
 app.use(fileUpload());
