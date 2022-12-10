@@ -13,14 +13,14 @@ process.on('uncaughtException', (err) => {
 
 // connect database
 connectDB();
-app.use((req, res, next) => {
-    res.set({
-        "Access-Control-Allow-Origin": "*",
-        "Access-Control-Allow-Methods": "*",
-        "Access-Control-Allow-Headers": "'Access-Control-Allow-Headers: Origin, Content-Type, X-Auth-Token'",
-    });
 
-    next();
+app.use((req, res, next) => {
+  res.setHeader("Access-Control-Allow-Origin", "https://service-fare.onrender.com");
+  res.header(
+    "Access-Control-Allow-Headers",
+    "Origin, X-Requested-With, Content-Type, Accept"
+  );
+  next();
 });
 
 // cloudinary setup
